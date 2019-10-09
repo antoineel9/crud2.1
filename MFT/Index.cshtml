@@ -1,0 +1,48 @@
+﻿@page
+@model CRUD2._1.Pages.MFT.IndexModel
+
+@{
+    ViewData["Title"] = "Manufacture";
+}
+
+<h1>Manufacture</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufactures[0].Taurus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufactures[0].FI50)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufactures[0].Modelnumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Manufactures) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taurus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FI50)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelnumber)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Ford">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Ford">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Ford">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
